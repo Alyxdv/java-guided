@@ -1,7 +1,7 @@
 package model;
 
 public class WhiteTireOption extends AbstractBikeOption{
-    WhiteTireOption(AbstractBike bike) {
+    public WhiteTireOption(AbstractBike bike) {
         super(bike);
     }
 

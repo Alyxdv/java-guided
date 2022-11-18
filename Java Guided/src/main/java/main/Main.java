@@ -5,11 +5,42 @@ import controller.PrepSale;
 import controller.SerialNumberGenerator;
 import model.*;
 
+import java.util.ArrayList;
+
 public class Main {
 
 
     public static void main(String[] args) {
-        testPrepForSale();
+       orderItems();
+        //testReceipt();
+    }
+
+    public static void testReceipt() {
+        ArrayList<AbstractBike> bike = new ArrayList<>();
+        InventoryGenerator gen = new InventoryGenerator();
+        bike.add(gen.getCrossCountryList().get(0));
+        bike.add(gen.getDownhillList().get(0));
+        AbstractBike custom = gen.getVintageList().get(0);
+        custom = new LeatherSeatOption(custom);
+        bike.add(custom);
+
+        ArrayList<Accessories> accessories = new ArrayList<>();
+        accessories.add(0, new Accessories("Helmet", 29.99));
+
+        new SampleReceipt(bike, accessories);
+    }
+
+
+    private static void orderItems() {
+        SampleOrder order = new SampleOrder();
+        order.welcomeMessage();
+    }
+
+    public static void testInventory() {
+        InventoryGenerator inventory = new InventoryGenerator();
+        for(Touring bike : inventory.getTouringList()) {
+            System.out.println(bike.getSerial());
+        }
     }
 
     private static void testPrepForSale() {

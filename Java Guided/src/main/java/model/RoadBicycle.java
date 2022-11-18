@@ -9,6 +9,16 @@ public abstract class RoadBicycle extends AbstractBike{
     }
 
     @Override
+    public double getOptionAmount() {
+        return 0;
+    }
+
+    @Override
+    public String getOptionName() {
+        return null;
+    }
+
+    @Override
     public String getWheelType() {
         return "Normal";
     }

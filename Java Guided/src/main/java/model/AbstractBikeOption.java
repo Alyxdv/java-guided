@@ -14,9 +14,13 @@ public abstract class AbstractBikeOption extends AbstractBike{
     public abstract double getOptionAmount();
 
     @Override
+    public String getSerial() {
+        return decoratedBike.getSerial();
+    }
+
+    @Override
     public String toString() {
-        String price = String.format("%9s", "$" +  getPrice());
-        return decoratedBike.getClass().getSimpleName() + price + " Model #" + getPrefix() + " " +
-                decoratedBike.getColor() + " frame with Serial #" + getSerial();
+        String price = String.format("%24s", "$" +  getPrice());
+        return "  " + decoratedBike.getClass().getSimpleName() + price;
     }
 }
